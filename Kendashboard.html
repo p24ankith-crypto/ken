@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StrategyFlow - AI-Powered Consulting for Mid-Market Companies</title>
+    <meta name="description" content="Get strategic recommendations in 48 hours, not 12 weeks. AI-powered continuous strategy at 5% of what Big 3 firms charge.">
+    <style>
+        /* Design System */
+        :root {
+            /* Primitive Color Tokens */
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-teal-800: rgba(41, 150, 161, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+
+            /* RGB versions for opacity control */
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-slate-500-rgb: 98, 108, 113;
+            --color-red-500-rgb: 192, 21, 47;
+            --color-red-400-rgb: 255, 84, 89;
+            --color-orange-500-rgb: 168, 75, 47;
+            --color-orange-400-rgb: 230, 129, 97;
+
+            /* Background color tokens */
+            --color-bg-1: rgba(59, 130, 246, 0.08);
+            --color-bg-2: rgba(245, 158, 11, 0.08);
+            --color-bg-3: rgba(34, 197, 94, 0.08);
+            --color-bg-4: rgba(239, 68, 68, 0.08);
+            --color-bg-5: rgba(147, 51, 234, 0.08);
+            --color-bg-6: rgba(249, 115, 22, 0.08);
+            --color-bg-7: rgba(236, 72, 153, 0.08);
+            --color-bg-8: rgba(6, 182, 212, 0.08);
+
+            /* Semantic Color Tokens */
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-primary-active: var(--color-teal-700);
+            --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-btn-primary-text: var(--color-cream-50);
+            --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-error: var(--color-red-500);
+            --color-success: var(--color-teal-500);
+            --color-warning: var(--color-orange-500);
+            --color-info: var(--color-slate-500);
+            --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+            --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+            /* Custom colors for landing page */
+            --accent-emerald: #10b981;
+            --accent-emerald-hover: #059669;
+            --accent-emerald-active: #047857;
+            --navy: #1e3a8a;
+            --navy-light: #3b82f6;
+
+            /* Typography */
+            --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            --font-size-xs: 11px;
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-md: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 30px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 550;
+            --font-weight-bold: 600;
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            --letter-spacing-tight: -0.01em;
+
+            /* Spacing */
+            --space-0: 0;
+            --space-1: 1px;
+            --space-2: 2px;
+            --space-4: 4px;
+            --space-6: 6px;
+            --space-8: 8px;
+            --space-10: 10px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-base: 8px;
+            --radius-md: 10px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+
+            /* Shadows */
+            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+            /* Animation */
+            --duration-fast: 150ms;
+            --duration-normal: 250ms;
+            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+            /* Layout */
+            --container-sm: 640px;
+            --container-md: 768px;
+            --container-lg: 1024px;
+            --container-xl: 1280px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-gray-400-rgb: 119, 124, 124;
+                --color-teal-300-rgb: 50, 184, 198;
+                --color-gray-300-rgb: 167, 169, 169;
+                --color-gray-200-rgb: 245, 245, 245;
+                --color-bg-1: rgba(29, 78, 216, 0.15);
+                --color-bg-2: rgba(180, 83, 9, 0.15);
+                --color-bg-3: rgba(21, 128, 61, 0.15);
+                --color-bg-4: rgba(185, 28, 28, 0.15);
+                --color-bg-5: rgba(107, 33, 168, 0.15);
+                --color-bg-6: rgba(194, 65, 12, 0.15);
+                --color-bg-7: rgba(190, 24, 93, 0.15);
+                --color-bg-8: rgba(8, 145, 178, 0.15);
+                --color-background: var(--color-charcoal-700);
+                --color-surface: var(--color-charcoal-800);
+                --color-text: var(--color-gray-200);
+                --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+                --color-primary: var(--color-teal-300);
+                --color-primary-hover: var(--color-teal-400);
+                --color-primary-active: var(--color-teal-800);
+                --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+                --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+                --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+                --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+                --color-error: var(--color-red-400);
+                --color-success: var(--color-teal-300);
+                --color-warning: var(--color-orange-400);
+                --color-info: var(--color-gray-300);
+                --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+                --color-btn-primary-text: var(--color-slate-900);
+                --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+                --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+                --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+                --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+            }
+        }
+
+        @font-face {
+            font-family: 'FKGroteskNeue';
+            src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: var(--font-size-base);
+            font-family: var(--font-family-base);
+            line-height: var(--line-height-normal);
+            color: var(--color-text);
+            background-color: var(--color-background);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Landing Page Specific Styles */
+        .lp-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 var(--space-24);
+        }
+
+        .lp-section {
+            padding: 60px 0;
+        }
+
+        .lp-section--hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .lp-section--alt {
+            background-color: var(--color-bg-1);
+        }
+
+        /* Typography */
+        .lp-headline {
+            font-size: 48px;
+            font-weight: var(--font-weight-bold);
+            line-height: 1.15;
+            letter-spacing: var(--letter-spacing-tight);
+            color: var(--color-text);
+            margin-bottom: var(--space-20);
+        }
+
+        .lp-subheadline {
+            font-size: 22px;
+            font-weight: var(--font-weight-normal);
+            line-height: 1.4;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-32);
+        }
+
+        .lp-section-title {
+            font-size: 36px;
+            font-weight: var(--font-weight-bold);
+            line-height: var(--line-height-tight);
+            margin-bottom: var(--space-24);
+            text-align: center;
+        }
+
+        .lp-section-subtitle {
+            font-size: 18px;
+            color: var(--color-text-secondary);
+            text-align: center;
+            margin-bottom: var(--space-32);
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 18px 36px;
+            background: var(--accent-emerald);
+            color: white;
+            font-size: 18px;
+            font-weight: var(--font-weight-semibold);
+            border: none;
+            border-radius: var(--radius-base);
+            cursor: pointer;
+            text-decoration: none;
+            transition: all var(--duration-normal) var(--ease-standard);
+        }
+
+        .cta-button:hover {
+            background: var(--accent-emerald-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .cta-button:active {
+            background: var(--accent-emerald-active);
+            transform: translateY(0);
+        }
+
+        .cta-subtext {
+            display: block;
+            margin-top: var(--space-12);
+            font-size: 14px;
+            color: var(--color-text-secondary);
+        }
+
+        /* Speed Comparison */
+        .speed-comparison {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-16);
+            margin-top: var(--space-32);
+            padding: var(--space-16) var(--space-24);
+            background: var(--color-bg-2);
+            border-radius: var(--radius-base);
+            font-size: 16px;
+        }
+
+        .speed-comparison strong {
+            color: var(--color-text);
+            font-weight: var(--font-weight-bold);
+        }
+
+        /* Story Section */
+        .story-content {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .story-content p {
+            margin-bottom: var(--space-20);
+        }
+
+        .story-highlight {
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text);
+        }
+
+        /* Statistics Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-32);
+            margin-bottom: var(--space-32);
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: var(--space-24);
+        }
+
+        .stat-number {
+            font-size: 56px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            display: block;
+            margin-bottom: var(--space-12);
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: var(--color-text);
+            line-height: 1.4;
+        }
+
+        .stat-insight {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+            text-align: center;
+            color: var(--color-text-secondary);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-24);
+        }
+
+        .testimonial-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-24);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .testimonial-quote {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--color-text);
+            margin-bottom: var(--space-16);
+        }
+
+        .testimonial-author {
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text);
+            display: block;
+            margin-bottom: var(--space-4);
+        }
+
+        .testimonial-role {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            display: block;
+        }
+
+        /* Logos */
+        .logos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: var(--space-32);
+            margin-top: var(--space-32);
+        }
+
+        .logo-item {
+            padding: var(--space-16) var(--space-24);
+            background: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-base);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-secondary);
+            font-size: 16px;
+        }
+
+        .logos-subtext {
+            text-align: center;
+            margin-top: var(--space-24);
+            color: var(--color-text-secondary);
+            font-size: 14px;
+        }
+
+        /* Research Insight */
+        .insight-box {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--space-32);
+            background: var(--color-bg-3);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--accent-emerald);
+        }
+
+        .insight-stat {
+            font-size: 28px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text);
+            margin-bottom: var(--space-16);
+            display: block;
+        }
+
+        .insight-explanation {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--color-text);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .comparison-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--color-bg-1);
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        .comparison-header-cell {
+            padding: var(--space-20);
+            font-weight: var(--font-weight-bold);
+            font-size: 18px;
+            text-align: center;
+            color: var(--color-text);
+        }
+
+        .comparison-header-cell:first-child {
+            border-right: 1px solid var(--color-border);
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 1px solid var(--color-card-border);
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-cell {
+            padding: var(--space-20);
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .comparison-cell:first-child {
+            border-right: 1px solid var(--color-card-border);
+            color: var(--color-text-secondary);
+        }
+
+        .comparison-cell:last-child {
+            background: var(--color-bg-3);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text);
+        }
+
+        .comparison-narrative {
+            max-width: 700px;
+            margin: var(--space-32) auto 0;
+            text-align: center;
+            font-size: 18px;
+            color: var(--color-text);
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-24);
+            margin-bottom: var(--space-32);
+        }
+
+        .pricing-card {
+            background: var(--color-surface);
+            border: 2px solid var(--color-card-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-32);
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card--popular {
+            border-color: var(--accent-emerald);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-emerald);
+            color: white;
+            padding: var(--space-4) var(--space-16);
+            border-radius: var(--radius-full);
+            font-size: 12px;
+            font-weight: var(--font-weight-bold);
+            text-transform: uppercase;
+        }
+
+        .pricing-name {
+            font-size: 24px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text);
+            margin-bottom: var(--space-8);
+        }
+
+        .pricing-audience {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-20);
+        }
+
+        .pricing-price {
+            font-size: 42px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            margin-bottom: var(--space-4);
+        }
+
+        .pricing-period {
+            font-size: 16px;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-24);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: var(--space-24);
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: var(--space-8) 0;
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--color-text);
+            position: relative;
+            padding-left: var(--space-24);
+        }
+
+        .pricing-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-emerald);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .pricing-comparison {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--space-24);
+            background: var(--color-bg-2);
+            border-radius: var(--radius-base);
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--space-32);
+            margin-bottom: var(--space-32);
+        }
+
+        .step-card {
+            text-align: center;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: var(--accent-emerald);
+            color: white;
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: var(--font-weight-bold);
+            line-height: 60px;
+            margin-bottom: var(--space-16);
+        }
+
+        .step-title {
+            font-size: 20px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text);
+            margin-bottom: var(--space-12);
+        }
+
+        .step-description {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--color-text-secondary);
+        }
+
+        .credibility-line {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 16px;
+            color: var(--color-text);
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* Video Placeholder */
+        .video-placeholder {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--color-surface);
+            border: 2px dashed var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 80px var(--space-32);
+            text-align: center;
+        }
+
+        .video-placeholder-text {
+            font-size: 18px;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-16);
+        }
+
+        .video-placeholder-duration {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+        }
+
+        /* FAQ / Objections */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: var(--space-32);
+        }
+
+        .faq-question {
+            font-size: 20px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text);
+            margin-bottom: var(--space-12);
+        }
+
+        .faq-answer {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--color-text-secondary);
+        }
+
+        /* Final CTA */
+        .final-cta {
+            text-align: center;
+            padding: 80px var(--space-24);
+            background: var(--color-bg-1);
+        }
+
+        .final-cta-title {
+            font-size: 42px;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-16);
+        }
+
+        .final-cta-subtitle {
+            font-size: 22px;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-32);
+        }
+
+        .scarcity-text {
+            display: block;
+            margin-top: var(--space-20);
+            padding: var(--space-16);
+            background: var(--color-bg-2);
+            border-radius: var(--radius-base);
+            font-size: 15px;
+            color: var(--color-text);
+            font-weight: var(--font-weight-medium);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            padding: var(--space-32) var(--space-24);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-24);
+            margin-bottom: var(--space-20);
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-email {
+            font-size: 16px;
+            color: var(--color-text);
+            margin-top: var(--space-20);
+        }
+
+        .footer-email a {
+            color: var(--accent-emerald);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+        }
+
+        .footer-email a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .lp-headline {
+                font-size: 36px;
+            }
+
+            .lp-subheadline {
+                font-size: 18px;
+            }
+
+            .lp-section-title {
+                font-size: 28px;
+            }
+
+            .lp-section {
+                padding: 40px 0;
+            }
+
+            .stats-grid,
+            .testimonials-grid,
+            .pricing-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-header,
+            .comparison-row {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-header-cell:first-child,
+            .comparison-cell:first-child {
+                border-right: none;
+                border-bottom: 1px solid var(--color-border);
+            }
+
+            .speed-comparison {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="lp-section lp-section--hero">
+        <div class="lp-container">
+            <h1 class="lp-headline">Get Strategic Recommendations in 48 Hours. Not 12 Weeks.</h1>
+            <p class="lp-subheadline">AI-powered continuous strategy for mid-market companies. At 5% of what Big 3 firms charge.</p>
+            <a href="#signup" class="cta-button">Get Your Free Strategy Audit</a>
+            <span class="cta-subtext">No credit card required • 14-day free trial</span>
+            
+            <div class="speed-comparison">
+                <span><strong>Traditional Consulting:</strong> 12+ weeks</span>
+                <span style="font-size: 24px;">→</span>
+                <span><strong>StrategyFlow:</strong> 48 hours</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Broken Experience Story -->
+    <section class="lp-section">
+        <div class="lp-container">
+            <h2 class="lp-section-title">You've Been There</h2>
+            <div class="story-content">
+                <p>You hired McKinsey for $800K.</p>
+                <p>Got a beautiful 200-page deck in 12 weeks.</p>
+                <p>Your team loved it... then nothing happened.</p>
+                <p>The market shifted. The recommendations felt outdated.</p>
+                <p>That expensive report is still gathering dust.</p>
+                <p>Meanwhile, you're paying people to <span class="story-highlight">implement</span> what should have been delivered.</p>
+                <p class="story-highlight">Sound familiar? You're not alone. 70% of consulting projects end up this way.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Visualization -->
+    <section class="lp-section lp-section--alt">
+        <div class="lp-container">
+            <h2 class="lp-section-title">Why Traditional Consulting Fails</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">70%</span>
+                    <p class="stat-label">of consulting projects fail to deliver results</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">12+</span>
+                    <p class="stat-label">weeks until you see ANY recommendations</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$500K+</span>
+                    <p class="stat-label">for insights that become obsolete before implementation</p>
+                </div>
+            </div>
+            <p class="stat-insight">You need guidance that evolves with your business. Not a report from 3 months ago.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="lp-section">
+        <div class="lp-container">
+            <h2 class="lp-section-title">What Leaders Are Saying</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"We used StrategyFlow to audit our go-to-market strategy. Got specific, actionable insights in 48 hours for $15K. Would've paid McKinsey $600K for the same work. The best part? It keeps learning our business and surfacing new opportunities every month."</p>
+                    <span class="testimonial-author">Sarah Chen</span>
+                    <span class="testimonial-role">Director of Operations, TechCore (SaaS, $250M revenue)</span>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Skeptical at first about AI consulting. But the platform flagged a supply chain inefficiency we missed. Saved us $2.3M annually. Game-changer for our strategic planning."</p>
+                    <span class="testimonial-author">James Martinez</span>
+                    <span class="testimonial-role">CFO, PrecisionMfg ($180M revenue)</span>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"I needed market entry strategy for a new vertical. StrategyFlow had it ready in 2 days with competitive intel we didn't even know existed. Launched successfully 6 months later. Worth every penny."</p>
+                    <span class="testimonial-author">Dr. Priya Patel</span>
+                    <span class="testimonial-role">CEO, HealthFirst Services ($300M revenue)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Early Adopter Logos -->
+    <section class="lp-section lp-section--alt">
+        <div class="lp-container">
+            <h2 class="lp-section-title">Trusted by Leaders at</h2>
+            <div class="logos-container">
+                <div class="logo-item">TechCore</div>
+                <div class="logo-item">PrecisionMfg</div>
+                <div class="logo-item">HealthFirst</div>
+                <div class="logo-item">RegionBank</div>
+                <div class="logo-item">DigitalRetail</div>
+            </div>
+            <p class="logos-subtext">Plus 200+ mid-market companies already using StrategyFlow</p>
+        </div>
+    </section>
+
+    <!-- Research Insight -->
+    <section class="lp-section">
+        <div class="lp-container">
+            <h2 class="lp-section-title">The Insight That Changed Everything</h2>
+            <div class="insight-box">
+                <strong class="insight-stat">McKinsey's own data: Their internal AI agents replaced work from 5,000 consultants</strong>
+                <p class="insight-explanation">If AI can do this for them, why are you still paying 1970s consulting prices? We rebuilt consulting for the AI era. You get the thinking, without the overhead.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Advantage Comparison -->
+    <section class="lp-section lp-section--alt">
+        <div class="lp-container">
+            <h2 class="lp-section-title">Traditional Consulting vs StrategyFlow</h2>
+            <div class="comparison-table">
+                <div class="comparison-header">
+                    <div class="comparison-header-cell">Traditional Consulting</div>
+                    <div class="comparison-header-cell">StrategyFlow</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">12 weeks to first insight</div>
+                    <div class="comparison-cell">48 hours to first insight</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">$500K-$1.2M per project</div>
+                    <div class="comparison-cell">$2K-$5K/month subscription</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">Team of 8 junior consultants</div>
+                    <div class="comparison-cell">AI agents + expert oversight</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">Static report delivered once</div>
+                    <div class="comparison-cell">Continuous recommendations</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">Outdated by implementation</div>
+                    <div class="comparison-cell">Real-time market updates</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">Hidden assumptions</div>
+                    <div class="comparison-cell">Transparent reasoning</div>
+                </div>
+            </div>
+            <p class="comparison-narrative">We deliver strategic thinking in hours, not months. Better insights, lower cost, actual implementation support.</p>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="lp-section">
+        <div class="lp-container">
+            <h2 class="lp-section-title">Pricing That Makes Sense</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="pricing-name">Starter</h3>
+                    <p class="pricing-audience">For companies $100-250M revenue</p>
+                    <div class="pricing-price">$2K</div>
+                    <div class="pricing-period">/month</div>
+                    <ul class="pricing-features">
+                        <li>5 strategic questions/month</li>
+                        <li>Real-time competitive intelligence</li>
+                        <li>Monthly strategy review call</li>
+                    </ul>
+                    <a href="#signup" class="cta-button">Start Free Trial</a>
+                </div>
+                
+                <div class="pricing-card pricing-card--popular">
+                    <div class="pricing-badge">Most Popular</div>
+                    <h3 class="pricing-name">Growth</h3>
+                    <p class="pricing-audience">For companies $250-500M revenue</p>
+                    <div class="pricing-price">$5K</div>
+                    <div class="pricing-period">/month</div>
+                    <ul class="pricing-features">
+                        <li>Unlimited strategic analysis</li>
+                        <li>Weekly market intelligence</li>
+                        <li>Bi-weekly strategy calls</li>
+                    </ul>
+                    <a href="#signup" class="cta-button">Get Free Audit</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-name">Enterprise</h3>
+                    <p class="pricing-audience">For companies $500M+</p>
+                    <div class="pricing-price">Custom</div>
+                    <div class="pricing-period">pricing</div>
+                    <ul class="pricing-features">
+                        <li>Dedicated AI strategy team</li>
+                        <li>Real-time dashboards</li>
+                        <li>Monthly board-level reports</li>
+                    </ul>
+                    <a href="#signup" class="cta-button">Talk to Us</a>
+                </div>
+            </div>
+            
+            <div class="pricing-comparison">
+                <strong>McKinsey project for equivalent scope: $450K-$750K.</strong><br>
+                StrategyFlow annual cost: $24K-$60K.<br>
+                <strong>95% savings.</strong> Same quality thinking. Continuous updates instead of a shelf report.
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="lp-section lp-section--alt">
+        <div class="lp-container">
+            <h2 class="lp-section-title">From Signup to Strategic Impact</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Sign Up (Day 1)</h3>
+                    <p class="step-description">You get instant access. No credit card needed for 14-day free trial.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Connect Your Context (Day 1)</h3>
+                    <p class="step-description">Answer 5 simple questions: industry, challenges, goals, competitive landscape. AI agents digest this and start learning your business.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Get Your First Recommendation (Day 2-3)</h3>
+                    <p class="step-description">Our AI team analyzes your situation and prepares 3-5 strategic recommendations with market research, financial modeling, and risk assessment.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Implement with Support (Ongoing)</h3>
+                    <p class="step-description">You're not left with a report. Our experts guide you through implementation, and the AI continuously monitors market shifts to update your strategy.</p>
+                </div>
+            </div>
+            <p class="credibility-line">Average time to first valuable insight: 48 hours. Average client sees ROI within 90 days.</p>
+        </div>
+    </section>
+
+    <!-- Video Placeholder -->
+    <section class="lp-section">
+        <div class="lp-container">
+            <h2 class="lp-section-title">See It In Action</h2>
+            <div class="video-placeholder">
+                <p class="video-placeholder-text">▶ Play video - 2 min demo showing how the platform works</p>
+                <p class="video-placeholder-duration">(Video demonstration of StrategyFlow in action)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objection Handling -->
+    <section class="lp-section lp-section--alt">
+        <div class="lp-container">
+            <h2 class="lp-section-title">Questions? We Thought You'd Ask</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3 class="faq-question">Q: Can AI really replace a $500K consulting project?</h3>
+                    <p class="faq-answer">A: Not every project. But 70% of consulting is knowledge work that AI now handles better, faster, cheaper. The other 30% requires human judgment—which we provide through our expert team.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Q: Won't McKinsey just copy this?</h3>
+                    <p class="faq-answer">A: They tried. They deployed 12,000 internal AI agents and still can't compete because their business model depends on high prices and large teams. They can't undercut themselves without collapsing margins.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Q: How is this different from just using ChatGPT?</h3>
+                    <p class="faq-answer">A: ChatGPT is a general tool. We've trained our AI agents on 100+ years of collective strategy consulting experience, your specific industry benchmarks, and proprietary market data. It's custom reasoning for your business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="signup">
+        <div class="lp-container">
+            <h2 class="final-cta-title">Ready to Get Strategy Right?</h2>
+            <p class="final-cta-subtitle">Stop paying for reports. Start implementing strategy.</p>
+            <a href="#" class="cta-button" onclick="handleSignup(event)">Get Your Free Strategy Audit Now</a>
+            <span class="cta-subtext">No credit card • 14-day free trial • Access to full platform</span>
+            <div class="scarcity-text">
+                ⏰ First 50 signups this month get 30% discount on annual plans + 1 free strategy session
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#" target="_blank">Privacy Policy</a>
+                <a href="#" target="_blank">Terms of Service</a>
+                <a href="#" target="_blank">About Us</a>
+                <a href="#" target="_blank">Careers</a>
+            </div>
+            <p class="footer-email">
+                Still have questions? Email us at <a href="mailto:hello@strategyflow.ai">hello@strategyflow.ai</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function handleSignup(event) {
+            event.preventDefault();
+            
+            // Simple signup modal simulation
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.8);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10000;
+                padding: 20px;
+            `;
+            
+            modal.innerHTML = `
+                <div style="
+                    background: var(--color-surface);
+                    border-radius: var(--radius-lg);
+                    padding: 40px;
+                    max-width: 500px;
+                    width: 100%;
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                ">
+                    <h2 style="
+                        font-size: 28px;
+                        font-weight: var(--font-weight-bold);
+                        color: var(--color-text);
+                        margin-bottom: 16px;
+                        text-align: center;
+                    ">Get Your Free Strategy Audit</h2>
+                    <p style="
+                        text-align: center;
+                        color: var(--color-text-secondary);
+                        margin-bottom: 24px;
+                        font-size: 16px;
+                    ">No credit card required • 14-day free trial</p>
+                    
+                    <form id="signupForm" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div>
+                            <label style="
+                                display: block;
+                                margin-bottom: 8px;
+                                font-weight: var(--font-weight-medium);
+                                font-size: 14px;
+                                color: var(--color-text);
+                            ">Full Name</label>
+                            <input type="text" required style="
+                                width: 100%;
+                                padding: 12px;
+                                border: 1px solid var(--color-border);
+                                border-radius: var(--radius-base);
+                                font-size: 16px;
+                                color: var(--color-text);
+                                background: var(--color-background);
+                            ">
+                        </div>
+                        
+                        <div>
+                            <label style="
+                                display: block;
+                                margin-bottom: 8px;
+                                font-weight: var(--font-weight-medium);
+                                font-size: 14px;
+                                color: var(--color-text);
+                            ">Work Email</label>
+                            <input type="email" required style="
+                                width: 100%;
+                                padding: 12px;
+                                border: 1px solid var(--color-border);
+                                border-radius: var(--radius-base);
+                                font-size: 16px;
+                                color: var(--color-text);
+                                background: var(--color-background);
+                            ">
+                        </div>
+                        
+                        <div>
+                            <label style="
+                                display: block;
+                                margin-bottom: 8px;
+                                font-weight: var(--font-weight-medium);
+                                font-size: 14px;
+                                color: var(--color-text);
+                            ">Company Name</label>
+                            <input type="text" required style="
+                                width: 100%;
+                                padding: 12px;
+                                border: 1px solid var(--color-border);
+                                border-radius: var(--radius-base);
+                                font-size: 16px;
+                                color: var(--color-text);
+                                background: var(--color-background);
+                            ">
+                        </div>
+                        
+                        <div>
+                            <label style="
+                                display: block;
+                                margin-bottom: 8px;
+                                font-weight: var(--font-weight-medium);
+                                font-size: 14px;
+                                color: var(--color-text);
+                            ">Annual Revenue</label>
+                            <select required style="
+                                width: 100%;
+                                padding: 12px;
+                                border: 1px solid var(--color-border);
+                                border-radius: var(--radius-base);
+                                font-size: 16px;
+                                color: var(--color-text);
+                                background: var(--color-background);
+                            ">
+                                <option value="">Select range...</option>
+                                <option value="100-250">$100M - $250M</option>
+                                <option value="250-500">$250M - $500M</option>
+                                <option value="500+">$500M+</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label style="
+                                display: block;
+                                margin-bottom: 8px;
+                                font-weight: var(--font-weight-medium);
+                                font-size: 14px;
+                                color: var(--color-text);
+                            ">Biggest Strategic Challenge</label>
+                            <textarea required style="
+                                width: 100%;
+                                padding: 12px;
+                                border: 1px solid var(--color-border);
+                                border-radius: var(--radius-base);
+                                font-size: 16px;
+                                color: var(--color-text);
+                                background: var(--color-background);
+                                font-family: var(--font-family-base);
+                                resize: vertical;
+                                min-height: 80px;
+                            "></textarea>
+                        </div>
+                        
+                        <button type="submit" class="cta-button" style="
+                            width: 100%;
+                            margin-top: 8px;
+                        ">Start Free Trial</button>
+                        
+                        <button type="button" onclick="this.closest('div').parentElement.remove()" style="
+                            background: transparent;
+                            border: none;
+                            color: var(--color-text-secondary);
+                            cursor: pointer;
+                            padding: 8px;
+                            font-size: 14px;
+                        ">Cancel</button>
+                    </form>
+                </div>
+            `;
+            
+            const form = modal.querySelector('#signupForm');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                modal.remove();
+                
+                // Success message
+                const success = document.createElement('div');
+                success.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: var(--accent-emerald);
+                    color: white;
+                    padding: 20px 24px;
+                    border-radius: var(--radius-base);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                    z-index: 10001;
+                    font-weight: var(--font-weight-medium);
+                `;
+                success.textContent = '✓ Success! Check your email for next steps.';
+                document.body.appendChild(success);
+                
+                setTimeout(() => success.remove(), 5000);
+            });
+            
+            document.body.appendChild(modal);
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '#signup') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
